@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Belajar - Warna, Angka, Hewan, Tebak Gambar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+        }
+
+        .answers {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .answers button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .answers button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Kuis Belajar Warna, Angka, Hewan, Tebak Gambar</h1>
+
+        <div id="quiz">
+            <!-- Pertanyaan 1: Warna -->
+            <div class="question">
+                <h2>Apa warna ini?</h2>
+                <div class="answers">
+                    <button onclick="checkAnswer(1, 'red')">Merah</button>
+                    <button onclick="checkAnswer(1, 'blue')">Biru</button>
+                    <button onclick="checkAnswer(1, 'green')">Hijau</button>
+                </div>
+                <img src="https://via.placeholder.com/150/FF0000/FFFFFF?text=" alt="warna merah">
+            </div>
+
+            <!-- Pertanyaan 2: Angka -->
+            <div class="question">
+                <h2>Berapakah ini?</h2>
+                <div class="answers">
+                    <button onclick="checkAnswer(2, '3')">3</button>
+                    <button onclick="checkAnswer(2, '5')">5</button>
+                    <button onclick="checkAnswer(2, '8')">8</button>
+                </div>
+                <img src="https://via.placeholder.com/150?text=5" alt="angka 5">
+            </div>
+
+            <!-- Pertanyaan 3: Hewan -->
+            <div class="question">
+                <h2>Hewan apakah ini?</h2>
+                <div class="answers">
+                    <button onclick="checkAnswer(3, 'dog')">Anjing</button>
+                    <button onclick="checkAnswer(3, 'cat')">Kucing</button>
+                    <button onclick="checkAnswer(3, 'elephant')">Gajah</button>
+                </div>
+                <img src="https://via.placeholder.com/150?text=cat" alt="gambar kucing">
+            </div>
+
+            <!-- Pertanyaan 4: Tebak Gambar -->
+            <div class="question">
+                <h2>Apa yang ada di gambar ini?</h2>
+                <div class="answers">
+                    <button onclick="checkAnswer(4, 'apple')">Apel</button>
+                    <button onclick="checkAnswer(4, 'banana')">Pisang</button>
+                    <button onclick="checkAnswer(4, 'grape')">Anggur</button>
+                </div>
+                <img src="https://via.placeholder.com/150?text=apple" alt="gambar apel">
+            </div>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Jawaban benar
+        const correctAnswers = {
+            1: 'red',    // Pertanyaan warna
+            2: '5',      // Pertanyaan angka
+            3: 'cat',    // Pertanyaan hewan
+            4: 'apple'   // Pertanyaan tebak gambar
+        };
+
+        // Fungsi untuk memeriksa jawaban
+        let score = 0;
+
+        function checkAnswer(questionNumber, answer) {
+            if (answer === correctAnswers[questionNumber]) {
+                score++;
+                alert('Jawaban benar!');
+            } else {
+                alert('Jawaban salah!');
+            }
+
+            if (questionNumber === 4) {
+                document.getElementById('result').innerText = `Skor akhir: ${score} dari 4`;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

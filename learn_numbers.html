@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Angka</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Custom Styling -->
+    <style>
+        body {
+            font-family: 'Baloo Tamma 2', cursive;
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            color: #333;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .nav-link {
+            font-size: 18px;
+            color: #fff !important;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffc107;
+        }
+
+        .number-box {
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: popIn 0.8s ease;
+        }
+
+        .number-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 10px;
+            color: #fff;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .play-icon {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Menetapkan ukuran gambar yang konsisten */
+        .number-box img {
+            width: 100px;
+            /* Sesuaikan ukuran lebar */
+            height: 100px;
+            /* Sesuaikan ukuran tinggi */
+            object-fit: contain;
+            /* Menjaga proporsi gambar */
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .background-music {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background music -->
+    <audio class="background-music" autoplay loop>
+        <source src="audio/background-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="edukids-logo.png" alt="EduKids Logo" style="width: 80px; height: 80px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="learn_colors.html">Learn Colors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="learn_numbers.html">Learn Numbers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="learn_animals.html">Learn Animals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="guess_the_picture.html">Guess the Picture</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Halaman Belajar Angka -->
+    <div class="container text-center my-5 pt-5">
+        <h1 class="display-4 text-primary mb-4 animate__animated animate__fadeInDown">Learn Numbers</h1>
+        <p class="lead text-dark mb-5 animate__animated animate__fadeInUp">Click the number to hear the number name!
+        </p>
+
+        <!-- Grid Angka -->
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="number-box" onclick="playSound('Zero')">
+                    <img src="images/number/zero.png" alt="0" class="img-fluid">
+                    <i class="play-icon bi bi-volume-up-fill"></i>
+                </div>
+                <p class="category-title">Zero</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="number-box" onclick="playSound('one')">
+                    <img src="images/number/one.png" alt="1" class="img-fluid">
+                    <i class="play-icon bi bi-volume-up-fill"></i>
+                </div>
+                <p class="category-title">One</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="number-box" onclick="playSound('two')">
+                    <img src="images/number/two.png" alt="2" class="img-fluid">
+                    <i class="play-icon bi bi-volume-up-fill"></i>
+                </div>
+                <p class="category-title">Two</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="number-box" onclick="playSound('three')">
+                    <img src="images/number/three.png" alt="3" class="img-fluid">
+                    <i class="play-icon bi bi-volume-up-fill"></i>
+                </div>
+                <p class="category-title">Three</p>
+            </div>
+        </div>
+
+        <!-- Baris 2 -->
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="number-box" onclick="playSound('four')">
+                    <img src="images/number/four.png" alt="4" class="img-fluid">
+                    <i class="play-icon bi bi-volume-up-fill"></i>
+                </div>
+                <p class="category-title">Four</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="number-box" onclick="playSound('five')">
+                    <img src="images/number/five.png" alt="5" class="img-fluid">
+                    <i class="play-icon bi bi-volume-up-fill"></i>
+                </div>
+                <p class="category-title">Five</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="number-box" onclick="playSound('six')">
+                    <img src="images/number/six.png" alt="6" class="img-fluid">
+                    <i class="play-icon bi bi-volume-up-fill"></i>
+                </div>
+                <p class="category-title">Six</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="number-box" onclick="playSound('seven')">
+                    <img src="images/number/seven.png" alt="7" class="img-fluid">
+                    <i class="play-icon bi bi-volume-up-fill"></i>
+                </div>
+                <p class="category-title">Seven</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="number-box" onclick="playSound('eight')">
+                    <img src="images/number/eight.png" alt="8" class="img-fluid">
+                    <i class="play-icon bi bi-volume-up-fill"></i>
+                </div>
+                <p class="category-title">Eight</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="number-box" onclick="playSound('Nine')">
+                    <img src="images/number/nine.png" alt="9" class="img-fluid">
+                    <i class="play-icon bi bi-volume-up-fill"></i>
+                </div>
+                <p class="category-title">Nine</p>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <script>
+            function playSound(number) {
+                let audio = new Audio(`audio/${number}.mp3`);
+                audio.play();
+            }
+        </script>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
